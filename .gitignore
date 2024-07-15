@@ -1,0 +1,49 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# production
+/build
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.vscode/
+*.log
+
+# testing
+/coverage
+
+# service worker
+/service-worker.js
+/serviceWorker.js
+/serviceWorkerRegistration.js
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# next.js build output
+.next/
+
+# nuxt.js build output
+.nuxt/
+dist/
+
+# vuepress build output
+.vuepress/dist
+
+# temporary folders
+.tmp/
+
+# any files in the dist directory should be ignored
+dist/
+
+# your custom ignores
+.idea/
+.history/
