@@ -7,11 +7,11 @@ import { ThemeProvider } from './context/ThemeContext';
 import './styles/global.css';
 import './styles/theme.css';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <Provider store={store}>
     <ThemeProvider>
       <App />
     </ThemeProvider>
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 );
