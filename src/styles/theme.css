@@ -1,0 +1,22 @@
+/* Default light theme */
+:root {
+    --primary-color: #282c34;
+    --background-color: #ffffff;
+    --text-color: #333333;
+  }
+  
+  [data-theme="dark"] {
+    --primary-color: #ffffff;
+    --background-color: #282c34;
+    --text-color: #f5f5f5;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  header {
+    background-color: var(--primary-color);
+  }
+  
