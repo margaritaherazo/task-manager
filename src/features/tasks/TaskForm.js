@@ -8,17 +8,19 @@ const TaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addTask({ title }));
-    setTitle('');
+    if (title.trim()) {
+      dispatch(addTask({ title }));
+      setTitle('');
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        value={title} 
-        onChange={(e) => setTitle(e.target.value)} 
-        placeholder="New Task" 
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Add a new task"
       />
       <button type="submit">Add Task</button>
     </form>
