@@ -1,27 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTasks } from './TaskAPI';
-import { addTask, selectTasks } from './taskSlice';
-import TaskItem from '../../components/TaskItem';
-import './TaskList.css';
+import { removeTask, toggleTask } from './taskSlice';
 
 const TaskList = () => {
+  const tasks = useSelector((state) => state.tasks);
   const dispatch = useDispatch();
-  const tasks = useSelector(selectTasks);
-
-  useEffect(() => {
-    // Fetch tasks from the API and dispatch action to add tasks to Redux store
-    fetchTasks().then((tasks) => {
-      tasks.forEach(task => dispatch(addTask(task)));
-    });
-  }, [dispatch]);  // Include dispatch as dependency to avoid eslint warning
 
   return (
-    <div className="task-list">
-      {tasks.map(task => (
-        <TaskItem key={task.id} task={task} />
+    <ul className="task-list">
+      {tasks.map((task) => (
+        <li key={task.id} className={`task-item ${task.completed ? 'completed' : ''}`}>
+          <span onClick={() => dispatch(toggleTask(task.id))}>{task.title}</span>
+          <button onClick={() => dispatch(removeTask(task.id))}>Remove</button>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
