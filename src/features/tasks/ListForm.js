@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTask } from './taskSlice';
+import { addList } from './taskSlice';
 
-const TaskForm = ({ listId }) => {
+const ListForm = () => {
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addTask({ listId, title }));
+    dispatch(addList({ title }));
     setTitle('');
   };
 
@@ -18,12 +18,12 @@ const TaskForm = ({ listId }) => {
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Add a new task"
+        placeholder="Add a new list"
         required
       />
-      <button type="submit">Add Task</button>
+      <button type="submit">Add List</button>
     </form>
   );
 };
 
-export default TaskForm;
+export default ListForm;
