@@ -1,54 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserProfile, saveUserProfile } from './userSlice';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateUser } from './userSlice';
 
 const UserProfile = () => {
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const profile = useSelector((state) => state.user.profile);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-
-  useEffect(() => {
-    dispatch(getUserProfile());
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (profile) {
-      setName(profile.name);
-      setEmail(profile.email);
-    }
-  }, [profile]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(saveUserProfile({ name, email }));
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    dispatch(updateUser({ [name]: value }));
   };
 
   return (
     <div>
-      <h1>User Profile</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
+      <h2>User Profile</h2>
+      <form>
+        <label>
+          Name:
           <input
             type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="name"
+            value={user.name}
+            onChange={handleChange}
           />
-        </div>
-        <div>
-          <label>Email:</label>
+        </label>
+        <br />
+        <label>
+          Email:
           <input
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            value={user.email}
+            onChange={handleChange}
           />
-        </div>
-        <button type="submit">Save</button>
+        </label>
       </form>
     </div>
   );
 };
 
 export default UserProfile;
-
