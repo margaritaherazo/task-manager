@@ -1,34 +1,28 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import TaskList from './components/TaskList';
-import TaskForm from './features/tasks/TaskForm';
+import TaskList from './features/tasks/TaskList';
+import ListForm from './features/tasks/ListForm';
 import UserProfile from './features/user/UserProfile';
-import { ThemeProvider, useTheme } from './context/ThemeContext';
+import { ThemeProvider } from './context/ThemeContext';
 import './styles/global.css';
 import './styles/theme.css';
 
 const App = () => {
-  const { theme } = useTheme();
-
   return (
-    <div className={`App ${theme}`}>
+    <ThemeProvider>
       <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<><TaskList /><TaskForm /></>} />
-          <Route path="/profile" element={<UserProfile />} />
-          {/* Add more routes as needed */}
-        </Routes>
+        <div className="App">
+          <Header />
+          <Routes>
+            <Route path="/" element={<><ListForm /><TaskList /></>} />
+            <Route path="/profile" element={<UserProfile />} />
+            {/* Add more routes as needed */}
+          </Routes>
+        </div>
       </Router>
-    </div>
+    </ThemeProvider>
   );
 };
 
-const AppWithTheme = () => (
-  <ThemeProvider>
-    <App />
-  </ThemeProvider>
-);
-
-export default AppWithTheme;
+export default App;
