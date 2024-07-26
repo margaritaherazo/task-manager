@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import TaskList from './features/tasks/TaskList';
-import TaskForm from './features/tasks/TaskForm';
+import ListForm from './features/tasks/ListForm';
 import UserProfile from './features/user/UserProfile';
 import { ThemeProvider } from './context/ThemeContext';
 import './styles/global.css';
@@ -14,8 +14,9 @@ const App = () => {
         <div className="App">
           <Header />
           <Routes>
-            <Route path="/" element={<><TaskList /><TaskForm /></>} />
+            <Route path="/" element={<><ListForm /><TaskList /></>} />
             <Route path="/profile" element={<UserProfile />} />
+            {/* Add more routes as needed */}
           </Routes>
         </div>
       </Router>
