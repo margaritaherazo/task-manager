@@ -1,31 +1,47 @@
+
 import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  lists: [],
+};
 
 const taskSlice = createSlice({
   name: 'tasks',
-  initialState: [],
+  initialState,
   reducers: {
+    addList: (state, action) => {
+      state.lists.push({
+        id: Date.now(),
+        title: action.payload.title,
+        tasks: [],
+      });
+    },
+    removeList: (state, action) => {
+      state.lists = state.lists.filter(list => list.id !== action.payload);
+    },
     addTask: (state, action) => {
-      state.push({ id: Date.now(), title: action.payload.title });
+      const list = state.lists.find(list => list.id === action.payload.listId);
+      if (list) {
+        list.tasks.push({ id: Date.now(), title: action.payload.title });
+      }
     },
     removeTask: (state, action) => {
-      return state.filter(task => task.id !== action.payload);
+      const list = state.lists.find(list => list.id === action.payload.listId);
+      if (list) {
+        list.tasks = list.tasks.filter(task => task.id !== action.payload.taskId);
+      }
     },
     toggleTask: (state, action) => {
-      const task = state.find(task => task.id === action.payload);
-      if (task) {
-        task.completed = !task.completed;
+      const list = state.lists.find(list => list.id === action.payload.listId);
+      if (list) {
+        const task = list.tasks.find(task => task.id === action.payload.taskId);
+        if (task) {
+          task.completed = !task.completed;
+        }
       }
     },
-    updateTask: (state, action) => {
-      const { id, title } = action.payload;
-      const task = state.find(task => task.id === id);
-      if (task) {
-        task.title = title;
-      }
-    }
   },
 });
 
-export const { addTask, removeTask, toggleTask, updateTask } = taskSlice.actions;
+export const { addList, removeList, addTask, removeTask, toggleTask } = taskSlice.actions;
 export default taskSlice.reducer;
-

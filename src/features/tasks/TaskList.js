@@ -1,20 +1,35 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeTask, toggleTask } from './taskSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeTask, removeList, toggleTask } from './taskSlice';
+import TaskForm from './TaskForm';
 
 const TaskList = () => {
-  const tasks = useSelector((state) => state.tasks);
+  const lists = useSelector((state) => state.tasks.lists);
   const dispatch = useDispatch();
 
   return (
-    <ul className="task-list">
-      {tasks.map((task) => (
-        <li key={task.id} className={`task-item ${task.completed ? 'completed' : ''}`}>
-          <span onClick={() => dispatch(toggleTask(task.id))}>{task.title}</span>
-          <button onClick={() => dispatch(removeTask(task.id))}>Remove</button>
-        </li>
+    <div>
+      {lists.map((list) => (
+        <div key={list.id}>
+          <h2>{list.title}</h2>
+          <button onClick={() => dispatch(removeList(list.id))}>Remove List</button>
+          <ul>
+            {list.tasks.map((task) => (
+              <li key={task.id}>
+                <span
+                  style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+                  onClick={() => dispatch(toggleTask({ listId: list.id, taskId: task.id }))}
+                >
+                  {task.title}
+                </span>
+                <button onClick={() => dispatch(removeTask({ listId: list.id, taskId: task.id }))}>Remove Task</button>
+              </li>
+            ))}
+          </ul>
+          <TaskForm listId={list.id} />
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 
