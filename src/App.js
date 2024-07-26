@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import TaskList from './components/TaskList'; 
+import TaskList from './features/tasks/TaskList';
 import TaskForm from './features/tasks/TaskForm';
 import UserProfile from './features/user/UserProfile';
 import { ThemeProvider } from './context/ThemeContext';
@@ -13,16 +13,9 @@ const App = () => {
       <Router>
         <div className="App">
           <Header />
-
           <Routes>
-            <Route path="/" exact>
-              <TaskList />
-              <TaskForm />
-            </Route>
-            <Route path="/profile">
-              <UserProfile />
-            </Route>
-            {/* Add more routes as needed */}
+            <Route path="/" element={<><TaskList /><TaskForm /></>} />
+            <Route path="/profile" element={<UserProfile />} />
           </Routes>
         </div>
       </Router>
