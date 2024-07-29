@@ -12,3 +12,14 @@ body.dark {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
+
+header {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+button {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  border: 1px solid var(--bg-color);
+}
