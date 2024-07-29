@@ -18,6 +18,8 @@ html, body, #root {
     background-color: var(--bg-color);
     color: var(--text-color);
   }
+
+    /* Styling Header elements */
   
   header {
     display: flex;
@@ -39,6 +41,12 @@ html, body, #root {
     margin-right: 10px;
   }
 
+  .header-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+
   .nav-list {
     list-style-type: none;
     padding: 0;
@@ -56,6 +64,15 @@ html, body, #root {
   .nav-link:hover {
     text-decoration: underline; 
   } 
+
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-info {
+    margin-right: 10px;
+  }
   
   
   button {
