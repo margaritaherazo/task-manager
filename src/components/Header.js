@@ -10,12 +10,12 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <ul>
+        <ul className="nav-list">
           <li>
-            <Link to="/">Home</Link>
+            <Link className="nav-link"  to="/">Home</Link>
           </li>
           <li>
-            <Link to="/profile">Profile</Link>
+            <Link className="nav-link"  to="/profile">Profile</Link>
           </li>
           {/* Add other links as needed */}
         </ul>
