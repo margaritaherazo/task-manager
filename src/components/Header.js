@@ -21,8 +21,12 @@ const Header = () => {
       </nav>
       <div className="header-right">
         {user.name && <div className="user-info">{user.name}</div>}
-        <button onClick={toggleTheme} className="theme-switch-button">
-           {theme === 'light' ? 'Dark' : 'Light'} 
+        <button onClick={toggleTheme} className="theme-switcher">
+           {theme === 'light' ? (
+          <i className="fas fa-moon"></i>
+        ) : (
+          <i className="fas fa-sun"></i>
+        )} 
         </button>
       </div>
     </header>

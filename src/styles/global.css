@@ -74,6 +74,20 @@ html, body, #root {
     margin-right: 10px;
   }
   
+  .theme-switcher {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; 
+    transition: background-color 0.3s, color 0.3s; 
+  }
   
   button {
     padding: 10px 15px;
@@ -159,4 +173,14 @@ input[type="submit"]:hover {
 .centered-form button {
   padding: 15px 30px;
   font-size: 18px;
+}
+
+/* Styling user profile */
+
+.user-profile {
+  height: 100vh; 
+}
+
+.user-profile h2 {
+  text-align: center;
 }
