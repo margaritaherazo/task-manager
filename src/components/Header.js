@@ -22,7 +22,7 @@ const Header = () => {
       <div className="header-right">
         {user.name && <div className="user-info">{user.name}</div>}
         <button onClick={toggleTheme} className="theme-switch-button">
-          Switch to {theme === 'light' ? 'dark' : 'light'} theme
+           {theme === 'light' ? 'Dark' : 'Light'} 
         </button>
       </div>
     </header>

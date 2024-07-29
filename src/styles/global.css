@@ -20,12 +20,25 @@ html, body, #root {
   }
   
   header {
-    background-color: #282c34;
-    padding: 20px;
-    color: white;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid #ccc;
   }
   
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 50px; 
+    height: auto;
+    margin-right: 10px;
+  }
+
   .nav-list {
     list-style-type: none;
     padding: 0;
