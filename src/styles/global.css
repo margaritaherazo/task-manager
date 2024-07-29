@@ -86,33 +86,77 @@ html, body, #root {
     opacity: 0.8;
   }
   
-  /* Styling form elements */
-  form {
-    margin: 20px 0;
-  }
-  
-  input[type="text"] {
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-  }
-  
-  /* Styling task list */
-  .task-list {
-    margin-top: 20px;
-  }
-  
-  .task-item {
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .task-item.completed {
-    text-decoration: line-through;
-    color: #999;
-  }
-  
+ /* Styling form elements */
+form {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input[type="text"], input[type="submit"] {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+/* Styling task list container */
+.task-list-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Styling individual task lists */
+.task-list {
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.task-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Centering the form  */
+.centered-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.centered-form input[type="text"] {
+  width: 240px;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.centered-form button {
+  padding: 15px 30px;
+  font-size: 18px;
+}

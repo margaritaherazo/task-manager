@@ -8,9 +8,9 @@ const TaskList = () => {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className="task-list-container">
       {lists.map((list) => (
-        <div key={list.id}>
+        <div key={list.id} className="task-list">
           <h2>{list.title}</h2>
           <button onClick={() => dispatch(removeList(list.id))}>Remove List</button>
           <ul>
@@ -18,6 +18,7 @@ const TaskList = () => {
               <li key={task.id}>
                 <span
                   style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+                  className={`task-item ${task.completed ? 'completed' : ''}`}
                   onClick={() => dispatch(toggleTask({ listId: list.id, taskId: task.id }))}
                 >
                   {task.title}

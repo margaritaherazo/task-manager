@@ -13,7 +13,7 @@ const ListForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="centered-form">
       <input
         type="text"
         value={title}
