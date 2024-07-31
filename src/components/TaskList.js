@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeTask } from '../features/tasks/taskSlice';
+import { removeTask } from '../features/tasks/TaskSlice';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import styled from 'styled-components';

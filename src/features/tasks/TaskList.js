@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeTask, removeList, toggleTask } from './taskSlice';
+import { removeTask, removeList, toggleTask } from './TaskSlice';
 import TaskForm from './TaskForm';
 
 const TaskList = () => {

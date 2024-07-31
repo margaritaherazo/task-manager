@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTasks } from '../features/tasks/taskAPI';
-import { setTasks, selectTasks } from '../features/tasks/taskSlice';
+import { setTasks, selectTasks } from '../features/tasks/TaskSlice';
 
 const useTasks = () => {
   const dispatch = useDispatch();

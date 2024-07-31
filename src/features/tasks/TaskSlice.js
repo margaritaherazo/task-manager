@@ -4,7 +4,7 @@ const initialState = {
   lists: [],
 };
 
-const taskSlice = createSlice({
+const TaskSlice = createSlice({
   name: 'tasks',
   initialState,
   reducers: {
@@ -42,5 +42,5 @@ const taskSlice = createSlice({
   },
 });
 
-export const { addList, removeList, addTask, removeTask, toggleTask } = taskSlice.actions;
-export default taskSlice.reducer;
+export const { addList, removeList, addTask, removeTask, toggleTask } = TaskSlice.actions;
+export default TaskSlice.reducer;
